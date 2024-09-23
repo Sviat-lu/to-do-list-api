@@ -1,0 +1,35 @@
+services:
+  to-do-app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    hostname: to-do-app
+    container_name: to-do-app
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    env_file:
+      - ../.env
+    depends_on:
+      - to-do-db
+
+  to-do-db:
+    image: postgres:15
+    hostname: to-do-db
+    container_name: to-do-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    env_file:
+      - ../.env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./initdb/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  postgres_data:
+    driver: local

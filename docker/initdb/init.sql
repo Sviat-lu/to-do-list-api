@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS task (
+    id SERIAL PRIMARY KEY,
+    created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMPTZ,
+    date_to_do TIMESTAMPTZ NOT NULL,
+    task_info TEXT NOT NULL
+);
