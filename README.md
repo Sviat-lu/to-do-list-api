@@ -58,7 +58,7 @@ To run the project locally, follow the steps below.
 
    ```bash
    git clone https://github.com/Sviat-lu/to-do-list-api
-   cd to-do-list
+   cd to-do-list-api
    ```
 
 2. Set up environment variables in `.env.template`:
@@ -97,7 +97,7 @@ This will start the FastAPI server and the PostgreSQL database.
 
    ```bash
    git clone https://github.com/Sviat-lu/to-do-list-api
-   cd to-do-list
+   cd to-do-list-api
    ```
 2. **Set Up the Virtual Environment:**
 
